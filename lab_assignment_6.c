@@ -3,8 +3,23 @@
 Michael Irvin
 2/22/24
 */
+
 int search(int numbers[], int low, int high, int value) 
-{
+{ 
+	 if (high >= low) {
+        int mid = low + (high - low) / 2;
+        if (numbers[mid] == value)
+            return mid;
+
+        if (numbers[mid] > value) {
+            return search(numbers, low, mid - 1, value);
+
+        return search(numbers, mid + 1, high, value);
+    }
+ 
+    return -1;
+	/*
+	Does't produce right output
 	if(low > high){
 		return -1;
 	}
@@ -17,6 +32,8 @@ int search(int numbers[], int low, int high, int value)
 	} else {
 	return search(numbers, low, mid + 1, value);
 	}
+	*/
+}
 }
 
 void printArray(int numbers[], int sz)
